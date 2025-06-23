@@ -13,7 +13,6 @@
       <nav>
         <ul>
           <li><a href="#beranda">Beranda</a></li>
-          <li><a href="#menu">Menu</a></li>
           <li><a href="#tentang">Tentang Kami</a></li>
           <li><a href="#kontak">Kontak</a></li>
         </ul>
@@ -23,26 +22,17 @@
 
   <section class="hero" id="beranda">
     <div class="container">
-      <h2>Selamat Datang di Surga Kopi!</h2>
-      <p>Nikmati secangkir kopi terbaik dari biji pilihan Indonesia.</p>
+      <h2>Selamat Datang di DeJaVu Coffee</h2>
+      <p>Cafe Estetik Dengan Banyak Varian Menu Dan Rasa</p>
+
     </div>
   </section>
 
   <section class="menu" id="menu">
     <div class="container">
       <h2>Menu Kopi</h2>
+      <a href="menu.html" class="btn">Lihat Menu</a>
       <div class="menu-items">
-        <div class="item">
-          <h3>Espresso</h3>
-          <p>Shot kopi pekat nan nikmat.</p>
-        </div>
-        <div class="item">
-          <h3>Cappuccino</h3>
-          <p>Espresso dengan susu dan foam.</p>
-        </div>
-        <div class="item">
-          <h3>Kopi Tubruk</h3>
-          <p>Tradisi khas Indonesia.</p>
         </div>
       </div>
     </div>
@@ -57,14 +47,59 @@
 
   <section class="kontak" id="kontak">
     <div class="container">
-      <h2>Hubungi Kami</h2>
-      <p>Email: info@kedaikopi.id</p>
-      <p>Instagram: @kedaikopi_nusantara</p>
+      <h2>Info Pemesanan Hubungi Kami di :</h2>
+      <p>Wa : 087756521914</p>
+      <p>Instagram: @rhuma.dejavu</p>
     </div>
+    <section class="pesan">
+  <div class="container">
+    <h2>Form Pemesanan</h2>
+    <form id="orderForm">
+      <label for="nama">Nama Anda:</label>
+      <input type="text" id="nama" name="nama" required />
+
+      <label for="kopi">Pilih Menu Kopi:</label>
+      <select id="kopi" name="kopi" required>
+        <option value="">-- Pilih Kopi --</option>
+        <option value="Espresso">Espresso</option>
+        <option value="Americano">Americano</option>
+        <option value="Cappuccino">Cappuccino</option>
+        <option value="Latte">Latte</option>
+        <option value="Mocha">Mocha</option>
+        <option value="Kopi Tubruk">Kopi Tubruk</option>
+        <option value="Kopi Gula Aren">Kopi Gula Aren</option>
+        <option value="Vietnam Drip">Vietnam Drip</option>
+      </select>
+
+      <label for="catatan">Catatan (Opsional):</label>
+      <textarea id="catatan" name="catatan" rows="4"></textarea>
+
+      <button type="submit">Pesan Sekarang</button>
+    </form>
+  </div>
+</section>
   </section>
 
   <footer>
     <p>&copy; 2025 Kedai Kopi Nusantara. Semua Hak Dilindungi.</p>
   </footer>
 </body>
+<script>
+  document.getElementById("orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nama = document.getElementById("nama").value;
+    const kopi = document.getElementById("kopi").value;
+    const catatan = document.getElementById("catatan").value;
+
+    const pesan = `Halo, saya ${nama} ingin memesan:\n\nMenu: ${kopi}\nCatatan: ${catatan}`;
+    
+    const nomorWhatsApp = "6287756521914"; // GANTI dengan nomor pemilik tanpa + (gunakan kode negara, contoh 62 untuk Indonesia)
+    
+    const url = `https://wa.me/${nomorWhatsApp}?text=${encodeURIComponent(pesan)}`;
+    
+    window.open(url, "_blank");
+  });
+</script>
+
 </html>
